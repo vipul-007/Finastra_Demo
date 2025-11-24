@@ -1,0 +1,56 @@
+
+
+
+
+<!-- <div class="investment-container">
+    <div class="investment-row">
+      <div class="investment-cell">ID</div>
+      <div class="investment-cell">Name</div>
+      <div class="investment-cell">Amount</div>
+      <div class="investment-cell">Purchase Date</div>
+      <div class="investment-cell">Type</div>
+      <div class="investment-cell">Current Value</div>
+    </div>
+
+    <div class="investment-row" *ngFor="let inv of allInvestmentList()">
+      <div class="investment-cell">{{ inv.id }}</div>
+      <div class="investment-cell">{{ inv.name }}</div>
+      <div class="investment-cell">{{ inv.amount  }}</div>
+      <div class="investment-cell">{{ inv.purchaseDate  }}</div>
+      <div class="investment-cell">{{ inv.type }}</div>
+      <div class="investment-cell">{{ inv.currentValue  }}</div>
+    </div>
+  </div>  -->
+
+  <p>investment-list works!</p>
+ 
+<button (click)="displayAllMyInvestments()">Show Investments</button>
+ 
+ 
+@if(allInvestmentList().length > 0) {
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Purchase Date</th>
+            <th>Current Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (investment of allInvestmentList(); track investment){
+        <tr>
+            <td>{{ investment.id }}</td>
+            <td>{{ investment.name }}</td>
+            <td>{{ investment.type }}</td>
+            <td>{{ investment.amount }}</td>
+            <td>{{ investment.purchaseDate }}</td>
+            <td>{{ investment.currentValue }}</td>
+        </tr>
+        }
+    </tbody>
+</table>
+ 
+}
