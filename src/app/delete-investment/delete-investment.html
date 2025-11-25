@@ -1,0 +1,30 @@
+<p>delete-investment works!</p>
+@if(allInvestmentList().length > 0) {
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Purchase Date</th>
+                <th>Current Value</th>
+                <th>Delete Investment</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (investment of allInvestmentList(); track investment){
+            <tr>
+                <td>{{ investment.id }}</td>
+                <td>{{ investment.name }}</td>
+                <td>{{ investment.type }}</td>
+                <td>{{ investment.amount }}</td>
+                <td>{{ investment.purchaseDate }}</td>
+                <td>{{ investment.currentValue }}</td>
+                <td><button (click)="onDeleteInvestment(investment.id)">delete</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+     
+    }
