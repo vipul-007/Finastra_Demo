@@ -28,7 +28,7 @@ export class DeleteInvestment {
   
   }
 
-  onDeleteInvestment(id:number):void{
+  onDeleteInvestment(id:any):void{
     this.investmentService.deleteInvestment(id).subscribe(() => {
       console.log(`Investment with ID ${id} deleted.`);
       this.investmentService.loadInvestment();

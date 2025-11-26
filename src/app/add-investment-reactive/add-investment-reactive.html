@@ -1,0 +1,79 @@
+<p>add-investment-reactive works!</p>
+
+<nav style="margin-bottom: 1rem;">
+    <a routerLink="/investmentlist" routerLinkActive="active" style="margin-right: 1rem;">Back to investment list</a>
+   
+</nav>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate class="form">
+    <div class="row">
+        <label for="id">ID:</label>
+        <input id="id" type="number" formControlName="id" />
+        @if(form.get('id')?.invalid && form.get('id')?.touched) {
+            <div class="error">ID is required </div>
+        }
+            
+        @if(f.id.touched && f.id.hasError('min')) {
+            <div class="error">ID must be greater then 0</div>
+        }
+            
+    
+    </div>
+
+    <div class="row">
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" type="text" />
+        @if(form.get('name')?.invalid && form.get('name')?.touched) {
+            <div class="error">Name is required </div>
+        }
+        @if(f.name.touched && f.name.hasError('minlength')) {
+            <div class="error">Name must be at least 3 characters long</div>
+        }
+    </div>
+    <div class="form-row">
+        <label for="type">Type:</label>
+        <select id="type" formControlName="type">
+            <option value="Equity">Equity</option>
+            <option value="Debt">Debt</option>
+            <option value="Mutual Fund">Mutual Fund</option>
+        </select>
+        @if(f.type.touched && f.type.hasError('required')) {
+        <small class="error">Type is required.</small>
+        }
+    </div>
+ 
+    <div class="form-row">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" formControlName="amount" />
+        @if(f.amount.touched && f.amount.hasError('required')) {
+        <small class="error">Amount is required.</small>
+        }
+        @if(f.amount.touched && f.amount.hasError('min')) {
+        <small class="error">Amount must be greater than 0.</small>
+        }
+    </div>
+ 
+    <div class="form-row">
+        <label for="purchaseDate">Purchase Date:</label>
+        <input type="date" id="purchaseDate" formControlName="purchaseDate" />
+        @if(f.purchaseDate.touched && f.purchaseDate.hasError('required')) {
+        <small class="error">Purchase Date is required.</small>
+        }
+    </div>
+ 
+    <div class="form-row">
+        <label for="currentValue">Current Value:</label>
+        <input type="number" id="currentValue" formControlName="currentValue" />
+        @if(f.currentValue.touched && f.currentValue.hasError('required')) {
+        <small class="error">Current Value is required.</small>
+        }
+        @if(f.currentValue.touched && f.currentValue.hasError('min')) {
+        <small class="error">Current Value must be greater than or equal to 0.</small>
+        }
+    </div>
+ 
+    <button type="submit" [disabled]="form.invalid || isSubmitting()">Add Investment</button>
+                        
+
+
+
