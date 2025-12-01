@@ -6,7 +6,7 @@ import { Investment } from '../models/investment.model';
 })
 export class Investmentservicenew {
 
-  private readonly baseUrl = 'https://localhost:4500/investments';
+  private readonly baseUrl = 'http://localhost:4500/investments';
 
   async getAll(): Promise<Investment[]> {
     const res = await fetch(this.baseUrl);

@@ -1,12 +1,10 @@
-<p>investment works!</p>
- 
 <div class="investment-page">
-    <h1 class="page-title">Investment</h1>
+    <h1 class="page-title" style="display: flex; justify-content: center; color: rgb(100, 86, 69);">Investment</h1>
  
     <div class="summary">
         <div class="summary-item">
             <div class="label">Total Invested</div>
-            <div class="vlaue">${{ store.totalInvested() | number }}</div>
+            <div class="vlaue">${{ store.totalInvestment() | number }}</div>
         </div>
         <div class="summary-item">
             <div class="label">Current Value</div>
@@ -14,10 +12,10 @@
         </div>
         <div class="summary-item">
             <div class="label">Gain / Loss</div>
-        </div>
+       
         <div class="value" [class.positive]="store.totalGain() >= 0"
             [class.negative]="store.totalGain() <0"> ${{ store.totalGain() | number }}
-        </div>
+        </div> </div>
     </div>
 </div>
  

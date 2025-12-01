@@ -6,8 +6,13 @@ import { DeleteInvestment } from './delete-investment/delete-investment';
 import { ModifyInvestment } from './modify-investment/modify-investment';
 import { AddInvestmentReactive } from './add-investment-reactive/add-investment-reactive';
 import { InvestmentsComponent } from './investments.component/investments.component';
+import { Login } from './login/login';
+import { Navbar } from './navbar/navbar';
 
 export const routes: Routes = [
+    {path: '', component: Login},  
+    {path: 'dashboard', component: Navbar , children: [ 
+    { path: '', redirectTo: 'investment', pathMatch: 'full' }, // Default child route
     {path: 'investmentlist', component: InvestmentList },
     {path: 'findmyinvestment', component: FindMyInvestments},
     {path:'addinvestment', component: AddInvestment },
@@ -15,4 +20,6 @@ export const routes: Routes = [
     {path:'modifyinvestment', component: ModifyInvestment },
     {path:'addinvestmentreactive', component:AddInvestmentReactive},
     {path:'investment', component:InvestmentsComponent}
+    ]},
+    
 ];
